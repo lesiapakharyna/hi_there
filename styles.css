@@ -1,0 +1,135 @@
+body {
+    font-family: 'Inconsolata', monospace;
+}
+
+.navbar-brand img {
+    height: 1em;
+    vertical-align: baseline;
+    margin-bottom: -6px;
+}
+
+.header_menu {
+    font-size: 1.5em;
+}
+
+.block_1 {
+    font-size: 7em;
+    text-align: justify;
+    line-height: 0.9;
+}
+
+.block_1 img {
+    width: 1em;
+    height: 1em;
+    vertical-align: baseline;
+    margin-bottom: -23px;
+}
+
+::selection {
+    color: #005BBB;
+    background: #FFD500;
+}
+
+.uacolors {
+    color: #005BBB;
+    background: #FFD500;
+    display: inline-block;
+}
+
+hr {   
+    border-top: 8px dashed #000000;
+    opacity: 1;
+    margin-top: 4em;
+    margin-bottom: 4em;
+}
+
+.cvname {
+    font-size: 2.5em;
+}
+
+.block_2 {
+    font-size: 4em;
+    line-height: 1.1; 
+}
+
+.text_blue {
+    color: #005BBB;
+}
+
+.text_violet {
+    color: #b24af2;   
+}
+
+.text_red {
+    color: #f24a4a;      
+}
+
+.text_green {
+    color: #4a9e00;  
+}
+
+.block_2 img {
+    height: 0.9em;
+    /* width: 1em; */
+    vertical-align: baseline;
+}
+
+.block_3 {
+    font-size: 2.5em;
+    line-height: 1.1; 
+    text-align: center;
+}
+
+.block_4 {
+    font-size: 2.5em;
+    line-height: 1.1;  
+    margin-bottom: 1em;
+}
+
+.block_5 {
+    font-size: 2.5em;
+    line-height: 1.1; 
+    margin-bottom: 1em; 
+}
+
+.block_6 {
+
+}
+
+.block_7 {
+    font-size: 2.5em;
+    line-height: 1.1;  
+}
+
+.block_8 {
+    font-size: 2.5em;
+    line-height: 1.1;  
+}
+
+.block_9 {
+    font-size: 2.5em;
+    line-height: 1.1;  
+}
+
+.projects_grid {
+
+}
+
+.projects_grid .project_item {
+    padding-bottom: 1.5em;
+}
+
+.projects_grid .project_item img {
+    width: 100%;
+    
+}
+
+.project_item_tags {
+    font-size: 1.5em;
+}
+
+.block_10 {
+    font-size: 2.5em;
+    margin-bottom: 2em;
+    line-height: 0.9;
+}

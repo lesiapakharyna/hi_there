@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Lesia Pakharyna">
+    <title>Lesia Pakharyna</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;500;700&display=swap" rel="stylesheet">
+
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="styles.css" rel="stylesheet">
+
+    <script>
+        $(function(){
+          var grid = $('.projects_grid');
+
+
+          $('.projects_grid_filters a').click(function(e){
+              e.preventDefault();
+              var tag = $(this).attr('data-tag');
+            
+              if(tag == 'all'){
+                grid.find('.project_item').show();
+              } else {
+                grid.find('.project_item').hide();
+                grid.find('.tag_'+tag).show();
+              }
+
+              return false;
+          });
+        })
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a class="navbar-brand col-md-3 mb-2 mb-md-0 cvname" href="#">LP <img src="сoat_of_arms_of_ukraine.png"/></a>
+  
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 header_menu">
+          <li><a href="#projects" class="nav-link px-2 link-secondary">Projects</a></li>
+          <li><a href="#skills" class="nav-link px-2 link-dark">Skills</a></li>
+          <li><a href="#contacts" class="nav-link px-2 link-dark">Contacts</a></li>
+          <li><a href="#donate-to-ukraine" class="nav-link px-2 link-dark">Donate to Ukraine</a></li>
+        </ul>
+  
+  
+          <ul class="nav col-md-3 justify-content-end">
+            <li class="nav-item"><a href="https://www.instagram.com/lesia.pakharyna/" target="_blank" class="nav-link link-dark px-2">Instagram</a></li>
+            <li class="nav-item"><a href="https://www.facebook.com/Lesia.Pakharyna/" target="_blank" class="nav-link link-dark px-2">Facebook</a></li>
+          </ul>
+      </header>
+      <main>
+        
+        <div class="block_1">
+          Hi, my name is Lesia Pakharyna <img src="lesia_pakharyna_ua.jpeg" alt="Lesia Pakharyna"/>,
+          I am is a multidisciplinary specialist from <span class="uacolors">Ukraine</span>.
+        </div>
+
+        <hr/>
+
+        <div class="block_2">
+          I’m working on personal and commercial projects envolving fashion, beauty, culture, interior design etc 
+          as a multidisciplinary <span class="text_blue">creative director</span>, <span class="text_violet">content creator</span>,
+          <span class="text_red">writer</span>, <span class="text_green">contributor</span> 
+          <img src="lofficiel.png" alt="L’Officiel"/>, 
+          <img src="elle.png" alt="Elle"/>.
+        </div>
+
+        <hr/>
+        
+        <div class="block_3">
+          <div class="row">
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0">
+              🌞 design-minded
+            </div>
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0">
+              🌞 results-oriented
+            </div>
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0">
+              🌞 fashion-addicted
+            </div>
+          </div>
+        </div>
+
+        <a id="projects"/>
+
+        <hr/>
+
+        <div class="block_4">
+        I help brands make great content 😎 and become visually unique and memorable ❤️
+        </div>
+
+        <div class="block_5 projects_grid_filters">
+          <a href="#" data-tag="all">#all</a>
+          <a href="#" data-tag="shooting">#shooting</a>
+          <a href="#" data-tag="copywriting">#copywriting</a>
+          #strategy 
+          #styling 
+          #art_direction 
+          #visual_identity 
+          #consulting 
+          #design_presentation 
+          #digital_content 
+          #video_direction 
+          #websites 
+          #project_management 
+          #all
+        </div>
+
+        <div class="block_6">
+          <div class="row projects_grid">
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item tag_shooting">
+              
+              <h4>project №1 | <a href="https://elle.ua/ludi/interview/volonterskiy-front-istoriya-marii-kuzmenko-iz-hersona/" target="_blank">link</a></h4>
+              <div class="project_item_image">
+                <img src="kherson_elle_ukraine.jpeg"/>
+              </div>
+              <div class="project_item_tags">
+                <a>#shooting</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item tag_copywriting">
+              <h4>project №2</h4>
+              <div class="project_item_image">
+                <img src="kherson_elle_france.jpg"/>
+              </div>
+              <div class="project_item_tags">
+                <a>#copywriting</a>
+              </div>
+            </div>
+            
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item tag_copywriting tag_shooting">
+              <h4>project №3</h4>
+              <div class="project_item_image">
+                <img src="visual_beauty.jpg"/>
+              </div>
+              <div class="project_item_tags">
+                <a>#shooting</a>, <a>#copywriting</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item tag_copywriting tag_shooting">
+              <h4>project №4</h4>
+              <div class="project_item_image">
+                <img src="visual_beauty 2.jpg"/>
+              </div>
+              <div class="project_item_tags">
+                <a>#shooting</a>, <a>#copywriting</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item tag_copywriting tag_shooting">
+              <h4>project №5</h4>
+              <div class="project_item_image">
+                <img src="website_stylist.jpg"/>
+              </div>
+              <div class="project_item_tags">
+                <a>#shooting</a>, <a>#copywriting</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item tag_copywriting tag_shooting">
+              <h4>project №6</h4>
+              <div class="project_item_image">
+                <img src="elle_ukraine_military.jpg"/>
+              </div>
+              <div class="project_item_tags">
+                <a>#shooting</a>, <a>#copywriting</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <a id="skills"/>
+
+        <hr/>
+
+        <div class="block_7">
+          <h3>Skills:</h3> 
+          <p>
+            +Graphical design <br/>
+            +Maintaining websites <br/>
+            +Creation presentation <br/>
+            +Creation strategy <br/>
+            #Marketing data analysis <br/>
+            #Project Management <br/>
+            #Working with the Media (as the editor, writer for media and pr management for customer) <br/>
+            #Communication Management
+          </p>
+
+        </div>
+        
+        <hr/>
+
+        <div class="block_8">
+          <h3>Languages:</h3> 
+          <p>
+            > English: upper-intermediate<br/>
+            > French: beginner<br/>
+            > Ukrainian: native
+          </p>
+
+        </div>
+
+        <a id="contacts"/>
+
+        <hr/>
+
+        <div class="block_9">
+          <h3>
+            I’m looking for interesting projects / team of the enthusiastics:
+          </h3>
+          <p>
+            email: <a href="mailto:l.pakharyna@gmail.com">l.pakharyna@gmail.com</a><br/>
+            ​​instagram: <a href="https://www.instagram.com/lesia.pakharyna/" target="_blank">@lesia.pakharyna</a><br/>
+            facebook: <a href="https://www.facebook.com/Lesia.Pakharyna/" target="_blank">Lesia Pakharyna</a>
+          </p>
+
+        </div>
+
+        <a id="donate-to-ukraine"/>
+
+        <hr/>
+
+        <div class="block_10">
+          Slava Ukraini!<br/>
+          Donate to Ukraine: <a href="https://u24.gov.ua/" target="_blank">u24.gov.ua</a>
+          🇺🇦
+        </div>
+
+      </main>
+    </div>
+  </body>
+</html>
