@@ -129,6 +129,11 @@ hr {
 
 .block_10 {
     font-size: 2.5em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     line-height: 0.9;
+}
+
+.block_11 {
+    font-size: 1em;
+    margin-bottom: 2em;
 }
