@@ -10,6 +10,16 @@ header .navbar {
     background-color: white;
 }
 
+@media (min-width: 992px) {
+    header .navbar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+}
+
 .navbar-brand img {
     height: 1em;
     vertical-align: baseline;
@@ -21,9 +31,15 @@ header .navbar {
 }
 
 .block_1 {
-    font-size: 7em;
+    font-size: 3em;
     text-align: justify;
     line-height: 0.9;
+}
+
+@media (min-width: 992px) {
+    .block_1 {
+        font-size: 7em;
+    }
 }
 
 .block_1 img {
@@ -60,8 +76,14 @@ hr {
 }
 
 .block_2 {
-    font-size: 4em;
+    font-size: 2em;
     line-height: 1.1; 
+}
+
+@media (min-width: 992px) {
+    .block_2 {
+        font-size: 4em;
+    }
 }
 
 .text_blue {
