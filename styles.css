@@ -31,7 +31,7 @@ header .navbar {
 }
 
 .block_1 {
-    font-size: 3em;
+    font-size: 5em;
     text-align: justify;
     line-height: 0.9;
 }
@@ -46,6 +46,11 @@ header .navbar {
     height: 1em;
     vertical-align: baseline;
     margin-bottom: -23px;
+}
+
+
+.break_word {
+    word-break: break-all;
 }
 
 ::selection {
@@ -76,7 +81,7 @@ hr {
 }
 
 .block_2 {
-    font-size: 2em;
+    font-size: 4em;
     line-height: 1.1; 
 }
 
@@ -185,9 +190,15 @@ hr {
 }
 
 .block_10 {
-    font-size: 2.5em;
+    font-size: 2em;
     margin-bottom: 1em;
     line-height: 0.9;
+}
+
+@media (min-width: 992px) {
+    .block_10 {
+        font-size: 2.5em;
+    }
 }
 
 .block_11 {
