@@ -28,12 +28,15 @@
           $('.projects_grid_filters a').click(function(e){
               e.preventDefault();
               var tag = $(this).attr('data-tag');
+
+              $('.projects_grid_filters a').removeClass("active");
+              $(this).addClass("active");
             
               if(tag == 'all'){
                 grid.find('.project_item').show();
               } else {
                 grid.find('.project_item').hide();
-                grid.find('.tag_'+tag).show();
+                grid.find('.project_item:contains(#'+tag+')').show();
               }
 
               return false;
@@ -42,22 +45,27 @@
     </script>
   </head>
   <body>
-    <div class="container-fluid">
-      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <a class="navbar-brand col-md-3 mb-2 mb-md-0 cvname" href="#">LP <img src="сoat_of_arms_of_ukraine.png"/></a>
-  
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 header_menu">
-          <li><a href="#projects" class="nav-link px-2 link-secondary">Projects</a></li>
-          <li><a href="#skills" class="nav-link px-2 link-dark">Skills</a></li>
-          <li><a href="#contacts" class="nav-link px-2 link-dark">Contacts</a></li>
-          <li><a href="#donate-to-ukraine" class="nav-link px-2 link-dark">Donate to Ukraine</a></li>
-        </ul>
-  
-  
-          <ul class="nav col-md-3 justify-content-end">
-            <li class="nav-item"><a href="https://www.instagram.com/lesia.pakharyna/" target="_blank" class="nav-link link-dark px-2">Instagram</a></li>
-            <li class="nav-item"><a href="https://www.facebook.com/Lesia.Pakharyna/" target="_blank" class="nav-link link-dark px-2">Facebook</a></li>
-          </ul>
+    <div class="container-fluid px-3">
+      <header>
+        <div class="navbar py-3 px-3 mb-4 border-bottom fixed-top">
+          <div class="w-100 d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
+            <a class="navbar-brand col-md-2 mb-2 mb-md-0 cvname" href="#"><img src="LP.jpg" alt="LP"/> <img src="сoat_of_arms_of_ukraine.png"/></a>
+      
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 header_menu">
+              <li><a href="#projects" class="nav-link px-3 link-secondary">Projects</a></li>
+              <li><a href="#skills" class="nav-link px-3 link-dark">Skills</a></li>
+              <li><a href="#contacts" class="nav-link px-3 link-dark">Contacts</a></li>
+              <li><a href="#donate-to-ukraine" class="nav-link px-3 link-dark">Donate to 🇺🇦</a></li>
+            </ul>
+      
+      
+              <ul class="nav col-md-2 justify-content-end">
+                <li class="nav-item"><a href="https://www.instagram.com/lesia.pakharyna/" target="_blank" class="nav-link link-dark px-2">Instagram</a></li>
+                <li class="nav-item"><a href="https://www.facebook.com/Lesia.Pakharyna/" target="_blank" class="nav-link link-dark px-2">Facebook</a></li>
+              </ul>
+           </div>
+        </div>
+       
       </header>
       <main>
         
@@ -70,10 +78,10 @@
 
         <div class="block_2">
           I’m working on personal and commercial projects envolving fashion, beauty, culture, interior design etc 
-          as a multidisciplinary <span class="text_blue">creative director</span>, <span class="text_violet">content creator</span>,
-          <span class="text_red">writer</span>, <span class="text_green">contributor</span> 
-          <img src="lofficiel.png" alt="L’Officiel"/>, 
-          <img src="elle.png" alt="Elle"/>.
+          as a multidisciplinary <span class="uacolors_inline">creative director, content creator,
+          writer, contributor</span> 
+          <img src="elle.png" alt="Elle"/>, 
+          <img src="lofficiel.png" alt="L’Officiel"/>.
         </div>
 
         <hr/>
@@ -81,13 +89,16 @@
         <div class="block_3">
           <div class="row">
             <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0">
-              🌞 design-minded
+              <i class="text_blue">I'm is</i><br/> 
+                design-minded
             </div>
             <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0">
-              🌞 results-oriented
+              <i class="text_yellow">I'm is</i><br/>
+             results-oriented
             </div>
             <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0">
-              🌞 fashion-addicted
+             <i class="text_grey">I'm is</i><br/>
+             fashion-addicted
             </div>
           </div>
         </div>
@@ -97,11 +108,12 @@
         <hr/>
 
         <div class="block_4">
-        I help brands make great content 😎 and become visually unique and memorable ❤️
+        I help brands make great content 😎 <br/>
+        and become visually unique and memorable ❤️
         </div>
 
         <div class="block_5 projects_grid_filters">
-          <a href="#" data-tag="all">#all</a>
+          <a href="#" data-tag="all" class="active">#all</a>
           <a href="#" data-tag="journalism">#journalism</a>
           <a href="#" data-tag="art_direction">#art_direction</a>
           <a href="#" data-tag="shooting">#shooting</a>
@@ -116,64 +128,61 @@
         <div class="block_6">
           <div class="row projects_grid">
 
-            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item tag_shooting">
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item">
               
               <h4>project №1 | <a href="https://elle.ua/ludi/interview/volonterskiy-front-istoriya-marii-kuzmenko-iz-hersona/" target="_blank">link</a></h4>
               <div class="project_item_image">
-                <img src="kherson_elle_ukraine.jpeg"/>
+                <a href="https://elle.ua/ludi/interview/volonterskiy-front-istoriya-marii-kuzmenko-iz-hersona/" target="_blank">
+                 <img src="kherson_elle_ukraine.jpeg"/> 
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#journalism</a> 
+                <a>#copywriting</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>project №2 | <a href="https://www.elle.fr/Societe/News/C-est-effrayant-de-ne-pas-avoir-de-droits-dans-sa-propre-ville-Maria-raconte-l-occupation-russe-en-Ukraine-4044384" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://www.elle.fr/Societe/News/C-est-effrayant-de-ne-pas-avoir-de-droits-dans-sa-propre-ville-Maria-raconte-l-occupation-russe-en-Ukraine-4044384" target="_blank">
+                  <img src="kherson_elle_france.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#journalism</a> 
+                <a>#copywriting</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item">
+              <h4>project №3</h4>
+              <div class="project_item_image">
+                <img src="visual_beauty 2.jpg"/>
               </div>
               <div class="project_item_tags">
                 <a>#shooting</a>
               </div>
             </div>
 
-            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item tag_copywriting">
-              <h4>project №2</h4>
-              <div class="project_item_image">
-                <img src="kherson_elle_france.jpg"/>
-              </div>
-              <div class="project_item_tags">
-                <a>#copywriting</a>
-              </div>
-            </div>
-            
-            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item tag_copywriting tag_shooting">
-              <h4>project №3</h4>
-              <div class="project_item_image">
-                <img src="visual_beauty.jpg"/>
-              </div>
-              <div class="project_item_tags">
-                <a>#shooting</a>, <a>#copywriting</a>
-              </div>
-            </div>
-
-            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item tag_copywriting tag_shooting">
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item">
               <h4>project №4</h4>
-              <div class="project_item_image">
-                <img src="visual_beauty 2.jpg"/>
-              </div>
-              <div class="project_item_tags">
-                <a>#shooting</a>, <a>#copywriting</a>
-              </div>
-            </div>
-
-            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item tag_copywriting tag_shooting">
-              <h4>project №5</h4>
               <div class="project_item_image">
                 <img src="website_stylist.jpg"/>
               </div>
               <div class="project_item_tags">
-                <a>#shooting</a>, <a>#copywriting</a>
+                <a>#websites</a>
               </div>
             </div>
 
-            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item tag_copywriting tag_shooting">
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item">
               <h4>project №6</h4>
               <div class="project_item_image">
                 <img src="elle_ukraine_military.jpg"/>
               </div>
               <div class="project_item_tags">
-                <a>#shooting</a>, <a>#copywriting</a>
+                <a>#journalism</a> 
+                <a>#copywriting</a>
               </div>
             </div>
 
@@ -187,14 +196,31 @@
         <div class="block_7">
           <h3>Skills:</h3> 
           <p>
-            + Creation strategy <br/>
-            + Graphical design <br/>
-            + Maintaining websites <br/>
-            + Project Management <br/>
-            + Communication Management <br/>
-            + Marketing data analysis <br/>
-            + Working with the Media (as the editor, writer for media and pr management for customer) <br/>
-            + Consulting <br/>
+            + Creation strategy 
+          </p>
+          <p>
+            + Graphical design 
+          </p>
+          <p>
+            + Maintaining websites 
+          </p>
+          <p>
+            + Project Management 
+          </p>
+          <p class="uacolors_inline">
+            + Communication Management 
+          </p>
+          <p>
+            + Marketing data analysis 
+          </p>
+          <p>
+            + Working with the Media (as the editor, <br/>
+            writer for media and pr management for customer) 
+          </p>
+          <p>          
+              + Consulting 
+          </p>
+          <p>
             + Design presentation 
           </p>
 
@@ -207,7 +233,7 @@
           <p>
             > English: upper-intermediate<br/>
             > French: beginner<br/>
-            > Ukrainian: native
+            > Ukrainian: in my heart 💛
           </p>
 
         </div>
@@ -239,7 +265,7 @@
         </div>
 
         <div class="block_11">
-          website by me / зроблено в Україні
+          website by me / made in Ukraine
         </div>
 
       </main>
