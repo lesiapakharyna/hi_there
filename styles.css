@@ -69,6 +69,11 @@ header .navbar {
     background: #FFD500;
 }
 
+.uacolors_inline.active {
+    color: #FFD500;
+    background: #005BBB;
+}
+
 hr {   
     border-top: 8px dashed #000000;
     opacity: 1;
