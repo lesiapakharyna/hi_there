@@ -112,7 +112,7 @@ hr {
 .block_3 {
     font-size: 2.5em;
     line-height: 1.1; 
-    text-align: center;
+    text-align: left;
     
     /* margin-top: 2em;
     margin-bottom: 2em; */
@@ -151,6 +151,16 @@ hr {
 
 }
 
+.load_more_wrap {
+    margin-top: 2em;
+}
+
+
+.load_more_wrap a {
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
 .block_7 {
     font-size: 2.5em;
     line-height: 1.1;  
@@ -186,13 +196,19 @@ hr {
     padding-left: 2em;
 }
 
+.projects_grid .project_item.hidden_item {
+    display: none;
+}
+
 .projects_grid .project_item img {
     width: 100%;
     
 }
 
 .project_item_tags {
-    font-size: 1.5em;
+    font-size: 1.2em;
+    line-height: 1.1;
+    margin-top: 0.5em;
 }
 
 

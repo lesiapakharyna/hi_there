@@ -18,12 +18,13 @@
     <script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
 
     <!-- Custom styles for this template -->
-    <link href="styles.css?v=7" rel="stylesheet">
+    <link href="styles.css?v=7" rel="stylesheet">                                                                                                            
 
     <script>
         $(function(){
           var grid = $('.projects_grid');
-
+          grid.find('.project_item').addClass('hidden_item');
+          grid.find('.project_item').addClass('selected').slice(0,6).removeClass('hidden_item');
 
           $('.projects_grid_filters a').click(function(e){
               e.preventDefault();
@@ -31,16 +32,34 @@
 
               $('.projects_grid_filters a').removeClass("active");
               $(this).addClass("active");
+
+              $('.load_more_wrap').hide();
+
+              grid.find('.project_item').addClass('hidden_item');
+              grid.find('.project_item').removeClass('selected');
             
               if(tag == 'all'){
-                grid.find('.project_item').show();
+                grid.find('.project_item').addClass('selected').slice(0,6).removeClass('hidden_item');
+                $('.load_more_wrap').show();
               } else {
-                grid.find('.project_item').hide();
-                grid.find('.project_item:contains(#'+tag+')').show();
+                grid.find('.project_item:contains(#'+tag+')').addClass('selected').slice(0,6).removeClass('hidden_item');
+
+                if (grid.find('.project_item.selected:contains(#'+tag+')').length > 6){
+                    $('.load_more_wrap').show();
+                }
               }
 
               return false;
           });
+
+          $('#load_more').click(function(e){
+            e.preventDefault();
+
+            grid.find('.project_item.selected').removeClass('hidden_item');
+            $('.load_more_wrap').hide();
+
+            return false;
+          })
         })
     </script>
   </head>
@@ -114,14 +133,18 @@
 
         <div class="block_5 projects_grid_filters">
           <a href="#" data-tag="all" class="active">#all</a>
-          <a href="#" data-tag="journalism">#journalism</a>
-          <a href="#" data-tag="art_direction">#art_direction</a>
-          <a href="#" data-tag="shooting">#shooting</a>
-          <a href="#" data-tag="styling">#styling</a>
-          <a href="#" data-tag="visual_identity">#visual_identity</a>
-          <a href="#" data-tag="digital_content">#digital_content</a>
-          <a href="#" data-tag="video_direction ">#video_direction</a>
+          <a href="#" data-tag="media">#media</a>
+          <a href="#" data-tag="foreign_media">#foreign_media</a>
+          <a href="#" data-tag="war_in_ukraine">#war_in_ukraine</a>
           <a href="#" data-tag="copywriting">#copywriting</a>
+          <a href="#" data-tag="content_creation">#content_creation</a>
+          <a href="#" data-tag="smm">#smm</a>
+          <a href="#" data-tag="video">#video</a>
+          <a href="#" data-tag="ad">#ad</a>
+          <a href="#" data-tag="shooting">#shooting</a>
+          <a href="#" data-tag="producing">#producing</a>
+          <a href="#" data-tag="styling">#styling</a>
+          <a href="#" data-tag="art_direction">#art_direction</a>
           <a href="#" data-tag="websites">#websites</a>
         </div>
 
@@ -130,61 +153,478 @@
 
             <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item">
               
-              <h4>project №1 | <a href="https://elle.ua/ludi/interview/volonterskiy-front-istoriya-marii-kuzmenko-iz-hersona/" target="_blank">link</a></h4>
+              <h4>№1 | <a href="https://elle.ua/ludi/interview/volonterskiy-front-istoriya-marii-kuzmenko-iz-hersona/" target="_blank">link</a></h4>
               <div class="project_item_image">
                 <a href="https://elle.ua/ludi/interview/volonterskiy-front-istoriya-marii-kuzmenko-iz-hersona/" target="_blank">
-                 <img src="kherson_elle_ukraine.jpeg"/> 
+                 <img src="kherson_ukraine_elle.jpg"/> 
                 </a>
               </div>
               <div class="project_item_tags">
-                <a>#journalism</a> 
-                <a>#copywriting</a>
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#print</a>
+                <a>#war_in_ukraine</a>
               </div>
             </div>
 
             <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
-              <h4>project №2 | <a href="https://www.elle.fr/Societe/News/C-est-effrayant-de-ne-pas-avoir-de-droits-dans-sa-propre-ville-Maria-raconte-l-occupation-russe-en-Ukraine-4044384" target="_blank">link</a></h4></h4>
+              <h4>№2 | <a href="https://www.elle.fr/Societe/News/C-est-effrayant-de-ne-pas-avoir-de-droits-dans-sa-propre-ville-Maria-raconte-l-occupation-russe-en-Ukraine-4044384" target="_blank">link</a></h4></h4>
               <div class="project_item_image">
                 <a href="https://www.elle.fr/Societe/News/C-est-effrayant-de-ne-pas-avoir-de-droits-dans-sa-propre-ville-Maria-raconte-l-occupation-russe-en-Ukraine-4044384" target="_blank">
-                  <img src="kherson_elle_france.jpg"/>
+                  <img src="kherson_elle_fr.jpg"/>
                 </a>
               </div>
               <div class="project_item_tags">
-                <a>#journalism</a> 
-                <a>#copywriting</a>
+                <a>#foreign_media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
               </div>
             </div>
 
-            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item">
-              <h4>project №3</h4>
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№3 | <a href="https://elle.ua/ludi/novosty/yak-ukrainski-zhinki-viyskovi-boronyat-nashu-krainu-ta-ryatuyut-zhittya-na-peredoviy-10-vrazhayuchih-istoriy/" target="_blank">link</a></h4></h4>
               <div class="project_item_image">
-                <img src="visual_beauty 2.jpg"/>
+                <a href="https://elle.ua/ludi/novosty/yak-ukrainski-zhinki-viyskovi-boronyat-nashu-krainu-ta-ryatuyut-zhittya-na-peredoviy-10-vrazhayuchih-istoriy/" target="_blank">
+                  <img src="women_milirary_ukraine_elle.jpg"/>
+                </a>
               </div>
               <div class="project_item_tags">
-                <a>#shooting</a>
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
               </div>
             </div>
 
-            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item">
-              <h4>project №4</h4>
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№4 | <a href="https://elle.ua/ludi/interview/napoleglivist-isnuvannya-organizatori-ta-uchasniki-ukrainskogo-stendu-pro-frankfurtskiy-knizhkoviy-yarmarok-2022/" target="_blank">link</a></h4></h4>
               <div class="project_item_image">
-                <img src="website_stylist.jpg"/>
+                <a href="https://elle.ua/ludi/interview/napoleglivist-isnuvannya-organizatori-ta-uchasniki-ukrainskogo-stendu-pro-frankfurtskiy-knizhkoviy-yarmarok-2022/" target="_blank">
+                  <img src="frankfurt_buchmesse 2022_elle.jpg"/>
+                </a>
               </div>
               <div class="project_item_tags">
-                <a>#websites</a>
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
               </div>
             </div>
 
-            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0 project_item">
-              <h4>project №6</h4>
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№5 | <a href="https://elle.ua/ludi/interview/zhodnoi-zvistki-vid-cholovika-z-23-travnya-osobista-istoriya-druzhini-viyskovopolonenogo-zastupnika-komandira-polku-azov/" target="_blank">link</a></h4></h4>
               <div class="project_item_image">
-                <img src="elle_ukraine_military.jpg"/>
+                <a href="https://elle.ua/ludi/interview/zhodnoi-zvistki-vid-cholovika-z-23-travnya-osobista-istoriya-druzhini-viyskovopolonenogo-zastupnika-komandira-polku-azov/" target="_blank">
+                  <img src="kalyna_elle.jpg"/>
+                </a>
               </div>
               <div class="project_item_tags">
-                <a>#journalism</a> 
-                <a>#copywriting</a>
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
               </div>
             </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№6 | <a href="https://elle.ua/ludi/interview/osobista-istoriya-zarina-apresova-pro-viynu-v-nagirnomu-karabasi-pro-te-yak-zaporizhzhya-stalo-dlya-nei-novim-domom-ta-pro-te-yak-zaporozhci-zgurtuval/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/interview/osobista-istoriya-zarina-apresova-pro-viynu-v-nagirnomu-karabasi-pro-te-yak-zaporizhzhya-stalo-dlya-nei-novim-domom-ta-pro-te-yak-zaporozhci-zgurtuval/" target="_blank">
+                  <img src="volunteer_apresova_elle.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№7 | <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-boyoviy-medichci-yarini-chornoguz/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-boyoviy-medichci-yarini-chornoguz/" target="_blank">
+                  <img src="chornoguz_elle.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№8 | <a href="https://elle.ua/ludi/interview/mi-proihali-37-rosiyskih-blokpostiv-istoriya-olgi-yakiy-vdalosya-viihati-z-timchasovo-okupovanogo-hersonu" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/interview/mi-proihali-37-rosiyskih-blokpostiv-istoriya-olgi-yakiy-vdalosya-viihati-z-timchasovo-okupovanogo-hersonu" target="_blank">
+                  <img src="evacuation_elle.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№9 | <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-ganni-z-mariupolya-druzhini-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-ganni-z-mariupolya-druzhini-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">
+                  <img src="ganna_naumenko_elle.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№10 | <a href="https://elle.ua/ludi/interview/lyudi-zalishilisya-bez-dahu-nad-golovoyu-istorii-zhiteliv-irpenya-pro-okupaciyu-ta-vidbudovu-zruynovanogo-zhitla/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/interview/lyudi-zalishilisya-bez-dahu-nad-golovoyu-istorii-zhiteliv-irpenya-pro-okupaciyu-ta-vidbudovu-zruynovanogo-zhitla/" target="_blank">
+                  <img src="irpin_elle.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№11 | <a href="https://elle.ua/stil-zhizni/blog_stil_zhizni/biblioteka-ukraincya-knigi-yaki-varti-vashoi-uvagi/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/stil-zhizni/blog_stil_zhizni/biblioteka-ukraincya-knigi-yaki-varti-vashoi-uvagi/" target="_blank">
+                  <img src="library_elle.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№12 | <a href="https://elle.ua/ludi/interview/knigovidavnicha-galuz-ukraini-robota-pid-chas-viyni/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/interview/knigovidavnicha-galuz-ukraini-robota-pid-chas-viyni/" target="_blank">
+                  <img src="book_market_war.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№13 | <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-katerini-z-mariupolya-druzhini-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-katerini-z-mariupolya-druzhini-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">
+                  <img src="kateryna_plechystova_elle.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№14 | <a href="https://elle.ua/ludi/novosty/tvorch-sili-ukrani-67-ukranskih-mitcv-pro-vynu/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/novosty/tvorch-sili-ukrani-67-ukranskih-mitcv-pro-vynu/" target="_blank">
+                  <img src="artists_war_elle.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>media</a> 
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№15 | <a href="https://elle.ua/ludi/novosty/vdrodzhennya-lteraturi-na-chol-z-vaplte-yak-pismenniki-vdstoyuvali-ukransku-kulturu-v-radyansk-chasi/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/novosty/vdrodzhennya-lteraturi-na-chol-z-vaplte-yak-pismenniki-vdstoyuvali-ukransku-kulturu-v-radyansk-chasi/" target="_blank">
+                  <img src="vaplite_elle_gogol.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>media</a> 
+                <a>#collaboration</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№16 | <a href="https://elle.ua/ludi/interview/volonterskiy-front-blagodiyniy-fond-prayd/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/interview/volonterskiy-front-blagodiyniy-fond-prayd/" target="_blank">
+                  <img src="volunteer_pride.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№17 | <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-pidpolkovniku-zsu-katerini-kornienko/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-pidpolkovniku-zsu-katerini-kornienko/" target="_blank">
+                  <img src="kornienko_elle.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№18 | <a href="https://elle.ua/moda/trendy/nazustrch-ltu-pomarancheviy-u-kolekcyah-ukranskih-brendv/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/moda/trendy/nazustrch-ltu-pomarancheviy-u-kolekcyah-ukranskih-brendv/" target="_blank">
+                  <img src="ukrainian_brands_elle.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№19 | <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-snayperci-evgenii-emerald/" target="_blank">link</a></h4></h4>
+              <div class="project_item_image">
+                <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-snayperci-evgenii-emerald/" target="_blank">
+                  <img src="emerald_elle.jpg"/>
+                </a>
+              </div>
+              <div class="project_item_tags">
+                <a>#media</a> 
+                <a>#interview</a>
+                <a>#war_in_ukraine</a>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+              <h4>№20 | <a href="https://elle.ua/ludi/interview/mashinu-mogo-druga-rozstrlyali-z-mnometu-artur-sereda-pro-volonterskiy-front-zaporzhzhya/" target="_blank">link</a></h4></h4>
+            <div class="project_item_image">
+              <a href="https://elle.ua/ludi/interview/mashinu-mogo-druga-rozstrlyali-z-mnometu-artur-sereda-pro-volonterskiy-front-zaporzhzhya/" target="_blank">
+                <img src="volunteer_sereda.jpg"/>
+              </a>
+            </div>
+            <div class="project_item_tags">
+              <a>#media</a> 
+              <a>#interview</a>
+              <a>#war_in_ukraine</a>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+            <h4>№21 | <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-viyskoviy-paramedikini-lastivci/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-viyskoviy-paramedikini-lastivci/" target="_blank">
+              <img src="lastivka_elle.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#media</a> 
+            <a>#interview</a>
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№22 | <a href="https://elle.ua/ludi/novosty/osobista-storya-yak-druzhini-bycv-batalyonu-azov-perezhivayut-vynu/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://elle.ua/ludi/novosty/osobista-storya-yak-druzhini-bycv-batalyonu-azov-perezhivayut-vynu/" target="_blank">
+              <img src="love_war_elle.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#media</a> 
+            <a>#interview</a>
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№23 | <a href="https://elle.ua/ludi/interview/silna-ta-nezlamna-osobista-istoriya-galini-klempouz-narechenoi-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://elle.ua/ludi/interview/silna-ta-nezlamna-osobista-istoriya-galini-klempouz-narechenoi-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">
+              <img src="perlynka_elle.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#media</a> 
+            <a>#interview</a>
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№24 | <a href="https://elle.ua/ludi/novosty/volonterskiy-front-storya-oleni-lukyanchuk/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://elle.ua/ludi/novosty/volonterskiy-front-storya-oleni-lukyanchuk/" target="_blank">
+              <img src="volunteer_olena.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#media</a> 
+            <a>#interview</a>
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№25 | <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-ganni-z-luganska-druzhini-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-ganni-z-luganska-druzhini-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">
+              <img src="ganna_mariupol_elle.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#media</a> 
+            <a>#interview</a>
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№26 | <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-tamari-divchini-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-tamari-divchini-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">
+              <img src="tamara_elle.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#media</a> 
+            <a>#interview</a>
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№27 | <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-yulii-iz-mariupolya-narechenoi-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-yulii-iz-mariupolya-narechenoi-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">
+              <img src="yuliya_elle.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#media</a> 
+            <a>#interview</a>
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№28 | <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-komandirci-rozviduvalnogo-viddilennya-irini-terehovich/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-komandirci-rozviduvalnogo-viddilennya-irini-terehovich/" target="_blank">
+              <img src="terekhovych_elle.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#media</a> 
+            <a>#interview</a>
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№29 | <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-ganni-z-mariupolya-druzhini-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://elle.ua/ludi/interview/silni-ta-nezlamni-osobista-istoriya-ganni-z-mariupolya-druzhini-viyskovopolonenogo-zahisnika-azovstali/" target="_blank">
+              <img src="ganna_zaitseva_elle.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#media</a> 
+            <a>#interview</a>
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№30 | <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-dobrovolici-alisi-kovalenko/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://elle.ua/ludi/interview/zhinki-na-fronti-10-zapitan-dobrovolici-alisi-kovalenko/" target="_blank">
+              <img src="alisa_dobrovolytsya.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#media</a> 
+            <a>#interview</a>
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№31 | <a href="https://www.lofficielmonaco.com/fashion/fashion-industry-joins-forces-to-respond-to-russia-s-invasion-of-ukraine" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://www.lofficielmonaco.com/fashion/fashion-industry-joins-forces-to-respond-to-russia-s-invasion-of-ukraine" target="_blank">
+              <img src="fashion_industry_joins_forces_russia's_invasion_of_kraine_officiel.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#foreign_media</a> 
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№32 | <a href="https://www.lofficielmonaco.com/fashion/ukrainian-designers-repurpose-their-talents-in-response-to-russia-s-invasion-of-ukraine/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://www.lofficielmonaco.com/fashion/ukrainian-designers-repurpose-their-talents-in-response-to-russia-s-invasion-of-ukraine/" target="_blank">
+              <img src="ukrainian_designers_russias_invasion_of_ukraine.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#foreign_media</a> 
+            <a>#war_in_ukraine</a>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№33 | <a href="https://www.lofficielmonaco.com/fashion-week/ukrainian-fashion-week/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://www.lofficielmonaco.com/fashion-week/ukrainian-fashion-week/" target="_blank">
+              <img src="Ukrainian_Fashion_Week_No_Season_2021_Lofficiel.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#foreign_media</a> 
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-xl-4 mb-3 mb-xl-0  project_item">
+          <h4>№34 | <a href="https://www.lofficielmonaco.com/fashion-week/the-body-wear-spring-summer-2021/" target="_blank">link</a></h4></h4>
+          <div class="project_item_image">
+            <a href="https://www.lofficielmonaco.com/fashion-week/the-body-wear-spring-summer-2021/" target="_blank">
+              <img src="the_body_wear_ss21_lofficiel.jpg"/>
+            </a>
+          </div>
+          <div class="project_item_tags">
+            <a>#foreign_media</a> 
+          </div>
+        </div>
+
+          </div>
+          <div class="load_more_wrap text-center">
+            <a href="#" id="load_more">
+              load more...
+            </a>
 
           </div>
         </div>
