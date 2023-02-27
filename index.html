@@ -21,71 +21,101 @@
     <link href="styles.css?v=7" rel="stylesheet">                                                                                                            
 
     <script>
-        $(function(){
-          var grid = $('.projects_grid');
+      $(function () {
+        var grid = $('.projects_grid');
+        grid.find('.project_item').addClass('hidden_item');
+        grid.find('.project_item').addClass('selected').slice(0, 6).removeClass('hidden_item');
+  
+        $('.projects_grid_filters a').click(function (e) {
+          e.preventDefault();
+          var tag = $(this).attr('data-tag');
+  
+          $('.projects_grid_filters a').removeClass("active");
+          $(this).addClass("active");
+  
+          $('.load_more_wrap').hide();
+  
           grid.find('.project_item').addClass('hidden_item');
-          grid.find('.project_item').addClass('selected').slice(0,6).removeClass('hidden_item');
-
-          $('.projects_grid_filters a').click(function(e){
-              e.preventDefault();
-              var tag = $(this).attr('data-tag');
-
-              $('.projects_grid_filters a').removeClass("active");
-              $(this).addClass("active");
-
-              $('.load_more_wrap').hide();
-
-              grid.find('.project_item').addClass('hidden_item');
-              grid.find('.project_item').removeClass('selected');
-            
-              if(tag == 'all'){
-                grid.find('.project_item').addClass('selected').slice(0,6).removeClass('hidden_item');
-                $('.load_more_wrap').show();
-              } else {
-                grid.find('.project_item:contains(#'+tag+')').addClass('selected').slice(0,6).removeClass('hidden_item');
-
-                if (grid.find('.project_item.selected:contains(#'+tag+')').length > 6){
-                    $('.load_more_wrap').show();
-                }
-              }
-
-              return false;
-          });
-
-          $('#load_more').click(function(e){
-            e.preventDefault();
-
-            grid.find('.project_item.selected').removeClass('hidden_item');
+          grid.find('.project_item').removeClass('selected');
+  
+          if (tag == 'all') {
+            grid.find('.project_item').addClass('selected').slice(0, 6).removeClass('hidden_item');
+            $('.load_more_wrap').show();
+          } else {
+            grid.find('.project_item:contains(#' + tag + ')').addClass('selected').slice(0, 6).removeClass('hidden_item');
+  
+            if (grid.find('.project_item.selected:contains(#' + tag + ')').length > 6) {
+              $('.load_more_wrap').show();
+            }
+          }
+  
+          return false;
+        });
+  
+        $('#load_more').click(function (e) {
+          e.preventDefault();
+  
+          grid.find('.project_item.selected.hidden_item').slice(0, 6).removeClass('hidden_item');
+          if (grid.find('.project_item.selected.hidden_item').length == 0) {
             $('.load_more_wrap').hide();
-
-            return false;
-          })
-        })
+          }
+  
+          return false;
+        });
+  
+        var scrollTopBtn = document.getElementById("scroll-top");
+        window.onscroll = function () {
+          if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            scrollTopBtn.style.display = "block";
+          } else {
+            scrollTopBtn.style.display = "none";
+          }
+        };
+        scrollTopBtn.onclick = function () {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        };
+  
+        $('#hamburger').click(function (e) {
+          e.preventDefault();
+          $('.mobile_menu_toggle').toggleClass('open');
+          return false;
+        });
+      })
     </script>
+
   </head>
   <body>
     <div class="container-fluid px-3">
       <header>
         <div class="navbar py-3 px-3 mb-4 border-bottom ">
           <div class="w-100 d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
-            <a class="navbar-brand col-md-2 mb-2 mb-md-0 cvname" href="#"><img src="LP.jpg" alt="LP"/> <img src="сoat_of_arms_of_ukraine.png"/></a>
-      
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 header_menu">
+            <div class="col-12 col-md-2 d-flex justify-content-between align-items-center">
+              <a class="navbar-brand cvname" href="#">
+                <img src="LP.jpg" alt="LP" />
+                <img src="сoat_of_arms_of_ukraine.png" alt="UA" />
+              </a>
+  
+              <a href="#" class="d-md-none" id="hamburger">🍔</a>
+            </div>
+  
+            <ul class="nav col-12 col-md-auto justify-content-center header_menu mobile_menu_toggle">
               <li><a href="#projects" class="nav-link px-3 link-secondary">Projects</a></li>
               <li><a href="#skills" class="nav-link px-3 link-dark">Skills</a></li>
               <li><a href="#contacts" class="nav-link px-3 link-dark">Contacts</a></li>
               <li><a href="#donate-to-ukraine" class="nav-link px-3 link-dark">Donate to 🇺🇦</a></li>
             </ul>
-      
-      
-              <ul class="nav col-md-2 justify-content-end">
-                <li class="nav-item"><a href="https://www.instagram.com/lesia.pakharyna/" target="_blank" class="nav-link link-dark px-2">Instagram</a></li>
-                <li class="nav-item"><a href="https://www.facebook.com/Lesia.Pakharyna/" target="_blank" class="nav-link link-dark px-2">Facebook</a></li>
-              </ul>
-           </div>
+  
+            <ul class="nav col-md-2 justify-content-end mobile_menu_toggle">
+              <li class="nav-item"><a href="https://www.instagram.com/lesia.pakharyna/" target="_blank"
+                  class="nav-link link-dark px-2">Instagram</a></li>
+              <li class="nav-item"><a href="https://www.facebook.com/Lesia.Pakharyna/" target="_blank"
+                  class="nav-link link-dark px-2">Facebook</a></li>
+            </ul>
+          </div>
         </div>
-       
       </header>
+      <button id="scroll-top">&#9757;</button>
       <main>
         
         <div class="block_1">
@@ -1439,7 +1469,7 @@
         </div>
 
         <div class="block_11">
-          website by me / made in Ukraine
+          made in Ukraine / website by me / scroll top button by Chat OpenAI - ChatGPT ☝️
         </div>
 
       </main>
