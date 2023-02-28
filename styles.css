@@ -235,6 +235,7 @@ hr {
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    padding: 0;
 }
 
 #scroll-top:hover {
